@@ -1,0 +1,179 @@
+/*index,static 페이지만  style_idx1 으로 바꿈*/
+html{
+	min-height:100%
+}
+body{
+	
+    margin:0;
+    font-family: 'Nanum Gothic';
+    min-height: 100%;
+}
+a{
+    text-decoration: none;
+    color:azure;
+}
+
+.navbar{
+
+display:  flex;
+justify-content : space-between;
+align-items:center;
+background-color: rgb(150,140,210);
+padding:50px 70px;
+/* 1.세로:px 2.가로:px */
+}
+.navbar_title{
+	
+font-size:40px;
+color:#ffff80;
+}
+
+.navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+
+}
+.navbar_menu li{
+font-size: 20px;
+padding: 5px 24px;
+}
+.navbar_reg{
+    list-style: none;
+    color:#66c2ff;
+    display: flex;
+    padding-left: 0px;
+    
+}
+
+#login_box{
+   list-style: none;
+    color:black;
+    font-weight:bold;
+    font-size:16px;
+    background-color: yellow;
+    display:flex;
+    padding:15px;
+
+}
+
+.navbar_reg li{
+font-size: 20px;
+padding: 10px 20px;   
+}
+.navbar_menu li:hover{
+    background-color: rgb(50,150,100);
+    border-radius: 6px;
+}
+.navbar_togle{
+    display: none;
+    position: absolute;
+    right:32px;
+    font-size: 32px;
+    color:#ffff80;
+}
+.div_Explan{
+	text-align: center;
+	margin-bottom:50px;
+}
+.p_title {
+	font-size: 20px;
+	font-weight:bold;
+	font-family:"Black Han Sans&display" !important;
+	margin: 50px;
+	margin-bottom:30px;
+
+}
+
+.p_main {
+	font-size: 20px;
+	font-family:"Black Han Sans&display" !important;
+}
+
+.footer_style{
+  position:fixed!important;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height:100px;
+  background:rgb(150,140,210);
+  color:azure;
+}
+.footer_ment1{
+	margin:0px;
+	margin-bottom: 3px;
+
+}
+.footer_alarm{
+	position:absolute;
+	margin: 0; padding: 0;
+	padding-top: 30px;
+	left: 30%
+	
+}
+.div_left{
+
+  float: left;
+  color:#ffff80;
+  font-size: 35px;
+  bottom: 17px;
+}
+.div_right{
+	padding-left:60px;
+}
+
+
+
+
+/*width:0~768px일때만 햄버거 버튼이 나온다*/
+@media screen and (max-width: 768px){
+	.footer_alarm{
+
+	left: 10%
+	
+}
+
+	.footer_style {
+
+ font-size:12px;
+
+}
+	.img_IT{
+	width: 500px;
+	height: 191px;
+	}
+	
+    .navbar{
+        
+        flex-direction: column;
+        align-items: flex-start;
+        padding:8px 24px;
+    }
+    .navbar_menu{
+        display:none;
+        flex-direction: column;
+        align-items:center;
+        width:100%;
+
+    }
+    .navbar_menu li{
+        
+        width:100%;
+        text-align: center;
+    }
+    .navbar_reg{
+        display:none;
+        justify-content: center;
+        width:100%;
+    }
+    .navbar_togle{
+        display: block;
+    }
+    
+    .navbar_reg.active{
+        display:flex;
+    }
+    .navbar_menu.active{
+        display:flex;
+    }
+}

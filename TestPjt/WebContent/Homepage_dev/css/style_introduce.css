@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*타이틀 시작*/
+
+
+main{
+	
+	color: white;
+}
+
+
+.head_title{
+  
+ font-family: "Anton", sans-serif;
+	color:white;
+	font-size:3rem;
+	letter-spacing: 3px;
+	background:url("https://cdn.hipwallpaper.com/i/99/66/sBio4a.jpg");
+	-webkit-background-clip: text;
+	background-clip:text;
+	-webkit-text-fill-color:transparent;
+	 animation: animate 8s linear infinite;
+	 text-align: center;
+}
+@keyframes animate{
+	from{
+	background-position:50% 50%;
+	}
+	to{
+	background-position:0% 0% 0%;
+	}
+}
+.subtitle{
+	
+	
+	font-size: 30px;
+	text-align: center;
+	
+}
+.intro{
+	margin-bottom: 0px;
+}
+/*타이틀 끝*/
+
+
+
+
+

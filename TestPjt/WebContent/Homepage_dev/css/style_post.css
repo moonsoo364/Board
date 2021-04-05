@@ -1,0 +1,30 @@
+@charset "UTF-8";
+.container{
+	
+	max-width: 500px;
+    min-height: 300px;
+	margin:0px auto;
+	text-align: center;
+	background-color: #99ebff;
+	
+	
+	
+	
+}
+.post{
+	
+	background-color: #00ea41;
+	margin-bottom: 10px;
+	
+}
+.textleft{
+	text-align: left;
+}
+/*푸터가 컨테이너 하단 덮어버리는 것 방지*/
+
+	
+@media screeen and(max-height: 650px){
+	.footer_style{
+	position:relative !important;
+	}
+}

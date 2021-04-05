@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.search{
+	color:black;
+}
+.login_section{
+	margin-bottom:30px;
+	margin-top:30px;
+	text-align: center;
+}
+.bottom_area{
+margin-top: 10px;
+font-size: 18px;	
+}
+
+.login_area{
+	font-size: 18px;
+	}
+.text_label{
+	height: 25px;
+	width:80px;
+	border: 4px;
+}
+table,form
+{
+	border:3px solid rgba(0, 134, 179,0.25);
+	border-spacing:15px;
+}
+.footer_style {
+ 	 position:fixed!important;
+}
+
+  
+  
+  
+ 

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*컨텐츠 영역 */
+.wrap_contents{
+	margin:0 auto;
+	margin-top: 60px;
+	max-width: 500px;
+	min-height: 300px;
+	text-align: center;
+	
+	
+}
+.h1_title{
+	font-size: 20px;
+}
+.p_info{
+	font-size: 15px;
+}
+/*------------컨텐트 헤더-----------*/
+td,tr,input,testarea,select,form{
+	font-size:15px;
+	border-radius: 5px;
+}
+table,form
+{
+	border:3px solid rgba(0, 134, 179,0.25);
+	border-spacing:15px;
+}
+.tbl{
+	background-color: #99ebff;
+	border-spacing:10px 10px;
+	margin-bottom:60px;
+}
+
+/*--------------컨텐트---------------*/
+
+

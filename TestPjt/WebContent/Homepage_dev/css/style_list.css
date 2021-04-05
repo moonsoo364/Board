@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/*-------게시판 타이틀------*/
+.board_title{
+	margin:auto;
+	text-align:center;
+}
+
+.post_count{
+	font-size:16px;
+	
+	
+}
+
+
+/*-------게시판 영역-------*/
+.board_table{
+	width:100%;
+	margin:auto;
+	text-align: center;
+	border:3px solid rgb(50,50,80);
+	font-size:20px;
+	
+}
+.table_head{
+	background: rgb(120,160,200);
+}
+.board_post{
+	border:3px solid rgb(50,50,80);
+	font-size:20px;
+	color:black;
+	padding:5px;
+	margin:auto;
+	
+	
+	
+}
+.container{
+	margin-top: 20px;
+	margin-bottom: 50px;
+	
+	top:50%;
+	left:50%;
+	
+}
+
+/*------게시물 이동 영역------*/
+.bottom_content{
+	width:100%;
+	margin:auto;
+	margin-top:20px;
+	margin-bottom: 20px;
+	text-align: center;
+	
+}
+#pageing{
+	color:black;
+}
+.move{
+	font-size:20px;
+	color:black;
+}
+
+
+/*------찾기 영역------*/
+.search_bar{
+	text-align:center;
+	width:25%;
+	margin:0 auto;
+	font-size: 20px;
+	border:0px;
+}
+input,select{
+	height:25px;	
+
+}
+
