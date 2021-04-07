@@ -33,16 +33,21 @@ request.setCharacterEncoding("UTF-8");
 		keyWord =request.getParameter("keyWord");//찾는 단어
 		keyField=request.getParameter("keyField");//찾는 범위 작성자,제목,내용
 	}
+	String check ="check";
+	check=request.getParameter("nowPage");
+	System.out.printf("check:%s\n",check);
 	
-	if(request.getParameter("reload")!=null){
+	 if(request.getParameter("reload")!=null){
 		if(request.getParameter("reload").equals("true")){
 			keyWord="";
 			keyField="";
 		}
 	}//리로딩
-	if(request.getParameter("nowPage") !=null){
-		nowPage=Integer.parseInt(request.getParameter("nowPage"));
+	if (request.getParameter("nowPage") != null) {
+			
+		nowPage = Integer.parseInt(request.getParameter("nowPage"));
 	}
+	
 	start=(nowPage * numPerPage)-numPerPage;
 	end = numPerPage;
 	
@@ -163,14 +168,13 @@ if(session.getAttribute("key")!=null){
 	    		<tr>	
 	    		<td><%=totalRecord -((nowPage-1)*numPerPage)-i %></td>
 	    		<td><%=sort %></td>
-	    		<td><%=title %></td>
+	    		<td><a id="title_color" href="javascript:read('<%=num%>')"><%=title %></a></td>
 	    		<td><%=id %></td>	    		
 	    		<td><%=count %></td>
 	    		</tr>
 	    	<%}//for %>
 	    <%}//if %>
-	    	</td>
-	    </tr>
+	    
 	 </table>
     	
 		<div class="bottom_content">
@@ -184,13 +188,15 @@ if(session.getAttribute("key")!=null){
 		<%
 			int pageStart = (nowBlock-1)*pagePerBlock+1;//하단페이지 시작 번호
 			int pageEnd = ((pageStart+pagePerBlock) <=totalPage) ? (pageStart + pagePerBlock) : totalPage+1;
+			
+			System.out.printf("pageStart:%d,pageEnd:%d\n",pageStart,pageEnd);
 			//하단 페이지 번호    
 			if(totalPage !=0){
 				if(nowBlock>1){%>
-					<a id="pageing" href="javascript:block('<%=nowBlock-1 %>')">prev...</a> <%}%>&nbsp;
+					<a href="javascript:block('<%=nowBlock-1 %>')">prev...</a> <%}%>&nbsp;
 					
 					<%for (;pageStart < pageEnd; pageStart++) {%>
-					<a href="javascroipt:pageing('<%=pageStart %>')">
+					<a href="javascript:pageing('<%=pageStart %>')" >
 					<%if(pageStart==nowPage) {%><font color="blue">
 					<%}else%><font color="black">
 					[<%=pageStart %>]
@@ -246,7 +252,7 @@ if(session.getAttribute("key")!=null){
 	</form>
 	<form name="readFrm" method="get">
 		<input type="hidden" name="num">
-		<input type="hidden" name="nowpage" value="<%=nowPage%>">
+		<input type="hidden" name="nowPage" value="<%=nowPage%>">
 		<input type="hidden" name="keyField" value="<%=keyField%>">
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">
 	</form>

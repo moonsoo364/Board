@@ -73,31 +73,31 @@ if(session.getAttribute("key")!=null){
 		    <div>자신의 지식을 널리 알리세요</div> 
 		    <div>지식은 나눌수록 정보는 배가 된답니다.</div>
 	   	 </div>
-	   	 <ul class="intro">
-	   	 	<li><strong>아이디어</strong>
-	   	 		 <p class="content">
+	   	 <div class="intro">
+	   	 	<div><strong>아이디어</strong>
+	   	 		 <div class="content">
 	   	 		 " 매일매일 여러 소식들이 넘쳐납니다
 	   	 		 게시판의 다양한 유저분들과 함께
 	   	 		 IT주제로 애기해보는 것 어떨까요?"
-	   	 		 </p>
-	   	 	</li>
-	   	 	<li><strong>캐쥬얼</strong>
-	   	 		 <p class="content">
+	   	 		 </div>
+	   	 	</div>
+	   	 	<div><strong>캐쥬얼</strong>
+	   	 		 <div class="content">
 	   	 		 " 간단할수록 좋습니다
 	   	 		 여러분들이 가지고 있는 생각을
 	   	 		 글로써 쉽게 적어보세요.
 	   	 		 "
-	   	 		 </p>
-	   	 	</li>
-	   	 	<li><strong>나눔</strong>
-	   	 		 <p class="content">
+	   	 		 </div>
+	   	 	</div>
+	   	 	<div><strong>나눔</strong>
+	   	 		 <div class="content">
 	   	 		 " '백지장도 맞들면 낫다'
 	   	 		 이런말도 있잖아요 서로의 지식을 
 	   	 		 나누다보면 더 유익한 지식이 될거에요!
 	   	 		 "
-	   	 		 </p>
-	   	 	</li>
-	   	 </ul>
+	   	 		 </div>
+	   	 	</div>
+	   	 </div>
 	  
     </main>
    

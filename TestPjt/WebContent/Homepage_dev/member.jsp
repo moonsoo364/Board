@@ -133,7 +133,7 @@
 							</tr>
 							<tr>
 							<td colspan="3" align="center">
-								   <input type="submit" value="회원가입" >
+								   <input type="button" value="회원가입" onclick="CheckAll()">
 								   <!-- 로그인 확인을 쉽게 하기위해 CheckAll 유효성검사 뺐음 기능 구현 됬으면 다시 넣아야함! -->
 							</td>
 							</tr>

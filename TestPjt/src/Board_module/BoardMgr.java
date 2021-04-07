@@ -45,8 +45,6 @@ public class BoardMgr {
 			if(keyWord.equals("null") || keyWord.equals("")) {
 				sql = "select * from tableboard order by num desc limit ?,?";
 				//번호를 기준으로 내림 차순으로 출력
-				System.out.printf("start:%d, end:%d\n",start,end);
-				System.out.printf("sql:%s\n",sql);
 				pstmt = con.prepareStatement(sql);
 				
 				pstmt.setInt(1,start);
@@ -158,7 +156,7 @@ public class BoardMgr {
 		BoardBean bean = new BoardBean();
 		try {
 			con = pool.getConnection();
-			sql = "select * from tblBoard where num=?";
+			sql = "select * from tableBoard where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
@@ -187,7 +185,7 @@ public class BoardMgr {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tblBoard set count=count+1 where num=?";
+			sql = "update tableBoard set count=count+1 where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();

@@ -34,10 +34,18 @@ main{
 	
 	font-size: 30px;
 	text-align: center;
+	margin-bottom: 30px;
+	
 	
 }
 .intro{
+	text-align:center;
 	margin-bottom: 0px;
+	font-size: 18px;
+}
+.content{
+	margin-bottom: 20px;
+	margin-top: 5px;
 }
 /*타이틀 끝*/
 

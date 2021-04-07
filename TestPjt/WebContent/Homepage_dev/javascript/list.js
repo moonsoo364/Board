@@ -1,12 +1,7 @@
 function list(){
-	document.listFrm.action ="list.jsp";
 	document.listFrm.submit();
-	
 }
-function pageing(page){
-	document.readFrm.nowPage.value=page;
-	document.readFrm.submit();
-}
+
 function read(num){
 	document.readFrm.num.value=num;
 	document.readFrm.action="read.jsp";
@@ -19,4 +14,8 @@ function check() {
 		return;
 	}
 	document.searchFrm.submit();
+}
+function pageing(page){
+	document.readFrm.nowPage.value=page;
+	document.readFrm.submit();
 }
