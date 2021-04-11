@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="Board_module.BoardBean" %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -18,12 +19,21 @@
 <%!String Idkey=null; %>
 <%
 if(session.getAttribute("key")!=null){
-	Idkey=(String) session.getAttribute("key");
-	System.out.printf("Id=%s 세션이 post.jsp에 로드되었습니다\n",Idkey);
+	Idkey=(String)session.getAttribute("key");
+	System.out.printf("Id=%s 세션이 update.jsp에 로드되었습니다\n",Idkey);
 	
 }else{
 	Idkey=null;
 }
+
+
+int num =Integer.parseInt(request.getParameter("num"));
+String nowPage =request.getParameter("nowPage");
+BoardBean bean=(BoardBean)session.getAttribute("bean");
+String title =bean.getTitle();
+String content =bean.getContent();
+
+
 
 %>
 <!-- navbar는 모든 페이지에 적용 됩니다.-->
@@ -62,15 +72,15 @@ if(session.getAttribute("key")!=null){
                 <i class="fas fa-sliders-h"></i>
             </a>
     </nav>
-    <!-- 글쓰기 내용 입니다. -->
+    
     <div class="container" >
-		<h2 class="post">글쓰기</h2>
-		<form name="postform" method="post" action="BoardPost">
+		<h2 class="post">수정하기</h2>
+		<form name="updateform" method="post" action="BoardUpdate">
 		
 		<table class= "content_table" cellpadding="3">
 				<tr>
 					<td>제목</td>
-					<td><input name="title" size="50" maxlength="30"></td>
+					<td><input name="title" value="<%=title %>" size="50" maxlength="30"></td>
 				</tr>
 				
 				<tr>
@@ -88,13 +98,13 @@ if(session.getAttribute("key")!=null){
     			</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea name="content" rows="10" cols="52"></textarea></td>
+					<td><textarea name="content"  rows="10" cols="52"><%=content %></textarea></td>
 				</tr>
 				
 				<%if(Idkey!=null) {%>
 				<tr>
 					<td colspan="2" >
-						<input type="input" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
+						<input type="button" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
 						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
 					</td>
 				</tr>
@@ -106,6 +116,7 @@ if(session.getAttribute("key")!=null){
 			</table>
 			<input type="hidden" name="ip" value="<%=request.getRemoteAddr() %>">
 			<input type="hidden" name="id" value="<%=Idkey %>">
+			<input type="hidden" name="nowPage" value="<%=nowPage %>">
 		</form>
 	</div>
    <!-- footer는 모든 페이지에 적용 됩니다.-->

@@ -7,7 +7,7 @@
 	request.setCharacterEncoding("UTF-8");
 	int num =Integer.parseInt(request.getParameter("num"));
 	String nowPage =request.getParameter("nowPage");
-	System.out.printf("nowPage=%s",nowPage);
+	System.out.printf("nowPage=%s\n",nowPage);
 	String keyField =request.getParameter("keyField");
 	String keyWord =request.getParameter("keyWored");
 	bMgr.upCount(num);//조회수 증가
@@ -48,7 +48,7 @@
 <%
 if(session.getAttribute("key")!=null){
 	Idkey=(String) session.getAttribute("key");
-	System.out.printf("Id=%s 세션이 Index.jsp에 로드되었습니다\n",Idkey);
+	System.out.printf("Id=%s 세션이 read.jsp에 로드되었습니다\n",Idkey);
 	
 }else{
 	Idkey=null;
@@ -101,7 +101,19 @@ if(session.getAttribute("key")!=null){
 		 	<div class="read_left1">제목</div> <div class="read_title"><%=title %></div>
 	     </div>
 	     <div class="read_content"><%=content %><hr>
-	     <a href="javascript:list()" style="color:black">[리스트]</a>
+	     <a href="javascript:list()" style="color:black">[리스트 |</a>
+	     <%
+	     System.out.printf("id.equals(Idkey):%s\n",id.equals(Idkey));//Call by Value
+	     System.out.printf("id==Idkey:%s\n",id==Idkey);//Call by Reference
+	     if(id.equals(Idkey)){
+	    System.out.println("게시물과 일치하는 Id입니다\n");%>
+	     	
+	     	<a href="update.jsp?nowPage=<%=nowPage %>&num=<%=num %>" style="color:black">수 정 |</a>
+	     	<a href="delete.jsp?nowPage=<%=nowPage %>&num=<%=num %>" style="color:black">삭 제]</a>
+	     
+	     <%}else if(id!=Idkey) {
+	     System.out.printf("id==Idkey:%s\n",id==Idkey);
+	     }%>
 	     
 	     </div>
 	     

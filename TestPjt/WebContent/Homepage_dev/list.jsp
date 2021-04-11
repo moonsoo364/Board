@@ -33,9 +33,8 @@ request.setCharacterEncoding("UTF-8");
 		keyWord =request.getParameter("keyWord");//찾는 단어
 		keyField=request.getParameter("keyField");//찾는 범위 작성자,제목,내용
 	}
-	String check ="check";
-	check=request.getParameter("nowPage");
-	System.out.printf("check:%s\n",check);
+	
+	
 	
 	 if(request.getParameter("reload")!=null){
 		if(request.getParameter("reload").equals("true")){

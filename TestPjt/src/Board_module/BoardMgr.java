@@ -196,7 +196,7 @@ public class BoardMgr {
 		}
 	}
 
-	
+	//게시물 삭제
 	public void deleteBoard(int num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -204,12 +204,12 @@ public class BoardMgr {
 		ResultSet rs = null;
 		try {
 			con = pool.getConnection();
-			sql = "select filename from tblBoard where num = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			rs = pstmt.executeQuery();
+//			sql = "select filename from tableBoard where num = ?";
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setInt(1, num);
+//			rs = pstmt.executeQuery();
 			
-			sql = "delete from tblBoard where num=?";
+			sql = "delete from tableBoard where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();
@@ -220,19 +220,18 @@ public class BoardMgr {
 		}
 	}
 
-	
+	//게시물 수정
 	public void updateBoard(BoardBean bean) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tblBoard set name = ?, title=?, content = ? where num = ?";
+			sql = "update tableBoard set  title=?, content = ?,regdate=now() where num = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bean.getId());
-			pstmt.setString(2, bean.getTitle());
-			pstmt.setString(3, bean.getContent());
-			pstmt.setInt(4, bean.getNum());
+			pstmt.setString(1, bean.getTitle());
+			pstmt.setString(2, bean.getContent());
+			pstmt.setInt(3, bean.getNum());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
