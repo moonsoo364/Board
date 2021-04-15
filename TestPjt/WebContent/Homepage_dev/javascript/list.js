@@ -7,13 +7,13 @@ function read(num){
 	document.readFrm.action="read.jsp";
 	document.readFrm.submit();
 }
-function check() {
-	if(document.searchFrm.keyWord.value==""){
-		alert("검색어를 입력하세요.");
-		document.searchFrm.keyWord.focus();
-		return;
-	}
-	document.searchFrm.submit();
+function check(){
+if (document.searchFrm.keyWord.value=="")
+{
+	alert("검색어를 입력해주세요.");
+	document.searchFrm.keyWord.focus;
+}
+document.searchFrm.submit();
 }
 function pageing(page){
 	document.readFrm.nowPage.value=page;

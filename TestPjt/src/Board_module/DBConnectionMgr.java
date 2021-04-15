@@ -41,7 +41,7 @@ public class DBConnectionMgr {
     private String _driver = "com.mysql.cj.jdbc.Driver",
     _url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",
     _user = "root",
-    _password = "Tink13542";
+    _password = "1234";
     
     private boolean _traceOn = false;
     private boolean initialized = false;

@@ -29,7 +29,7 @@ request.setCharacterEncoding("UTF-8");
 	String keyField="", keyWord=""; //DB에서 필드명 
 	Vector<BoardBean> vlist =null;
 	
-	if(request.getParameter("keyword")!=null){
+	if(request.getParameter("keyWord")!=null){
 		keyWord =request.getParameter("keyWord");//찾는 단어
 		keyField=request.getParameter("keyField");//찾는 범위 작성자,제목,내용
 	}
@@ -85,7 +85,7 @@ request.setCharacterEncoding("UTF-8");
 <%
 String Idkey=null;
 if(session.getAttribute("key")!=null){
-	Idkey=(String) session.getAttribute("key");
+	Idkey=(String)session.getAttribute("key");
 	System.out.printf("Id=%s 세션이 list.jsp에 로드되었습니다\n",Idkey);
 	
 }else{
@@ -179,7 +179,6 @@ if(session.getAttribute("key")!=null){
 		<div class="bottom_content">
 		<!-- 하단 페이징 처리 -->
 		<%if(session.getAttribute("key")!=null){%>
-		
     	<a href="post.jsp" class="board_post">글쓰기</a> 
     	
     	<%}%>
@@ -211,28 +210,19 @@ if(session.getAttribute("key")!=null){
 			</div>
     	
     	</div>
-    	<div class="search_bar">
-    		<table>
-    			<tr>
-    			<td>
-    				<select name="search_type" id="search_type" style="height:30px;">
-							<option value="sub_memo">본문</option>
-							<option value="subject">제목</option>
-							<option value="name">작성자</option>
-    			   </select>
-    			   </td>
-    				<td>
-    				<input name="search" type="text" size="50">
-    				</td>
-    				<td>
-    				<input type="button" style="height:30px" value="찾기"onclick="javascript:location.href='list.jsp'">
-    				</td>
-    				
-    			</tr>
-    		</table>
-    	</div>
-   
-    
+    	<form name="searchFrm" method="get" action="list.jsp">
+	    	<div class="bottom_content">
+	    			
+	    				<select name="keyField" id="search_type" style="height:30px;">
+								<option value="content">본문</option>
+								<option value="title">제목</option>
+								<option value="id">작성자</option>
+	    			   </select>
+	    				<input name="keyWord" type="text" size="50">
+	    				<input type="button" style="height:30px" value="찾기"onclick="javascript:check()">
+	    	</div>
+   		</form>
+  
   <!-- footer는 모든 페이지에 적용 됩니다.-->
 	<footer class="footer_style">
 		<div class="footer_alarm">
@@ -251,6 +241,7 @@ if(session.getAttribute("key")!=null){
 	</form>
 	<form name="readFrm" method="get">
 		<input type="hidden" name="num">
+		<%System.out.printf("keyField=%s keyWord=%s",keyField,keyWord); %>
 		<input type="hidden" name="nowPage" value="<%=nowPage%>">
 		<input type="hidden" name="keyField" value="<%=keyField%>">
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">

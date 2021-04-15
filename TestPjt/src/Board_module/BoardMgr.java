@@ -49,12 +49,13 @@ public class BoardMgr {
 				
 				pstmt.setInt(1,start);
 				pstmt.setInt(2,end);
-			} else {
+			} else {//검색하면 동작
+				System.out.printf("in java keyField=%s keyWord=%s\n",keyField,keyWord);
 				sql ="select * from tableboard where " + keyField + "like ?";
-				sql += "order by num desc, pos limit ? .?";
+				sql += "order by num desc limit ?,?";//keyField는 id,content,title 셋 중하나
 				pstmt =con.prepareStatement(sql);
-				pstmt.setString(1,"%" + keyWord + "%");
-				pstmt.setInt(2, start);
+				pstmt.setString(1, "%" + keyWord + "%");//찾고 싶은 내용
+				pstmt.setInt(2, start);//1부터 10까지만 한 화면에 표시
 				pstmt.setInt(3, end);
 				
 			}
@@ -84,17 +85,18 @@ public class BoardMgr {
 		PreparedStatement pstmt = null;//DB에서 자바로 결과 전송
 		ResultSet rs = null;//sql문 실행 결과
 		String sql =null;//sql실행 문장
+		
 		int totalCount = 0;
 		try {
 			conn = pool.getConnection();
-			if (keyWord.equals("null")||keyWord.equals("")) {
+			if (keyWord.equals("")||keyWord.equals("")) {
 				sql="select count(num) from tableboard" ;
 				pstmt = conn.prepareStatement(sql);
 				//키워드가 비워있을 때 키필드에서 count를 찾는다
 			} else {
 				sql = "select count(num) from tableboard where" + keyField + "like ?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1,"%"+keyWord+"%");//num을 찾는다
+				pstmt.setString(1, "%" + keyWord + "%");
 				//키워드가 있을 때
 			}
 			rs =pstmt.executeQuery();//sql문을 실행

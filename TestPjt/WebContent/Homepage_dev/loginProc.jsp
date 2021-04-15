@@ -25,7 +25,11 @@
 	}
 %>
 <script>
+if(<%=result%>){
+	alert("<%=msg%>");
+	location.href="<%=url2%>";
+}else{
 	alert("<%=msg%>");
 	location.href="<%=url%>";
-	
+}
 </script>
