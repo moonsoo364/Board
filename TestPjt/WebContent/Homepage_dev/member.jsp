@@ -44,7 +44,7 @@
             <ul class="navbar_menu">
                 <li><a href="Introduce.jsp">Introduce</a></li>
                 <li><a href="list.jsp">Board</a></li>
-                <li><a href="">Statistics</a></li>     
+                   
             </ul>
             <ul class="navbar_reg">
                 <li><i class="fas fa-sign-in-alt"></i><a href="login.jsp">&nbsp;login</a></li> 

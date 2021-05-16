@@ -165,7 +165,7 @@ function isbirthday(value){
 	function checkEmail(email){
 		//이메일이 입력되었는 지 확인하기
 		if(!checkExistData(email,"이메일을")){
-			register_form.birthday.focus();
+			register_form.email.focus();
 			return false;
 		}
 		//이메일 양식
@@ -187,7 +187,7 @@ function isbirthday(value){
 	function checkAddress(address) {
 		//주소가 입력 되었는 지 확인
 		if(!checkExistData(address,"주소를")){
-			register_form.birthday.focus();
+			register_form.address.focus();
 			return false;
 		}
 		return true;
@@ -195,7 +195,7 @@ function isbirthday(value){
 	function checkDetailaddress(detailaddress) {
 		//상세 주소를 입력했는 지 확인
 		if(!checkExistData(detailaddress,"상세주소를")){
-			register_form.birthday.focus();
+			register_form.detailaddress.focus();
 			return false;
 		}
 		return true;

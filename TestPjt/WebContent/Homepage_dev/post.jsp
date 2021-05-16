@@ -36,7 +36,7 @@ if(session.getAttribute("key")!=null){
             <ul class="navbar_menu">
                 <li><a href="Introduce.jsp">Introduce</a></li>
                 <li><a href="list.jsp">Board</a></li>
-                <li><a href="Static.jsp">Statistics</a></li>     
+                    
             </ul>
             <%if(Idkey == null) { %>
   			
@@ -94,7 +94,7 @@ if(session.getAttribute("key")!=null){
 				<%if(Idkey!=null) {%>
 				<tr>
 					<td colspan="2" >
-						<input type="input" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
+						<input type="button" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
 						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
 					</td>
 				</tr>

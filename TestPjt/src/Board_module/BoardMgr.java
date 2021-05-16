@@ -1,21 +1,12 @@
 package Board_module;
-
-
-
-
-
-
-
 import java.sql.Connection;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 
 
 public class BoardMgr {
@@ -46,18 +37,16 @@ public class BoardMgr {
 				sql = "select * from tableboard order by num desc limit ?,?";
 				//번호를 기준으로 내림 차순으로 출력
 				pstmt = con.prepareStatement(sql);
-				
 				pstmt.setInt(1,start);
 				pstmt.setInt(2,end);
 			} else {//검색하면 동작
 				System.out.printf("in java keyField=%s keyWord=%s\n",keyField,keyWord);
-				sql ="select * from tableboard where " + keyField + "like ?";
-				sql += "order by num desc limit ?,?";//keyField는 id,content,title 셋 중하나
+				sql = "select * from  tableBoard where " + keyField + " like ? ";
+				sql += "order by num desc, pos limit ? , ?";
 				pstmt =con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");//찾고 싶은 내용
 				pstmt.setInt(2, start);//1부터 10까지만 한 화면에 표시
 				pstmt.setInt(3, end);
-				
 			}
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -89,14 +78,14 @@ public class BoardMgr {
 		int totalCount = 0;
 		try {
 			conn = pool.getConnection();
-			if (keyWord.equals("")||keyWord.equals("")) {
+			if (keyWord.equals("null")||keyWord.equals("")) {
 				sql="select count(num) from tableboard" ;
 				pstmt = conn.prepareStatement(sql);
 				//키워드가 비워있을 때 키필드에서 count를 찾는다
 			} else {
-				sql = "select count(num) from tableboard where" + keyField + "like ?";
+				sql = "select count(num) from  tableBoard where " + keyField + " like ? ";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, "%" + keyWord + "%");
+				pstmt.setString(1, "%" + keyWord + "%");//찾고 싶은 내용
 				//키워드가 있을 때
 			}
 			rs =pstmt.executeQuery();//sql문을 실행
@@ -139,7 +128,7 @@ public class BoardMgr {
 			pstmt.setInt(6, pos);
 			pstmt.setInt(7, count);
 			pstmt.executeUpdate();
-			System.out.print("성공\n");
+			
 				
 			
 		}catch(Exception e) {
@@ -206,10 +195,6 @@ public class BoardMgr {
 		ResultSet rs = null;
 		try {
 			con = pool.getConnection();
-//			sql = "select filename from tableBoard where num = ?";
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, num);
-//			rs = pstmt.executeQuery();
 			
 			sql = "delete from tableBoard where num=?";
 			pstmt = con.prepareStatement(sql);
@@ -243,99 +228,4 @@ public class BoardMgr {
 	}
 
 	
-	public void replyBoard(BoardBean bean) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = null;
-		try {
-			con = pool.getConnection();
-			sql = "insert tblBoard (name,content,title,ref,pos,depth,regdate,pass,count,ip)";
-			sql += "values(?,?,?,?,?,?,now(),?,0,?)";
-			/* int depth = bean.getDepth() + 1; */
-			int pos = bean.getPos() + 1;
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bean.getId());
-			pstmt.setString(2, bean.getContent());
-			pstmt.setString(3, bean.getTitle());
-			/* pstmt.setInt(4, bean.getRef()); */
-			pstmt.setInt(5, pos);
-			/* pstmt.setInt(6, depth); */
-			/* pstmt.setString(7, bean.getPass()); */
-			pstmt.setString(8, bean.getIp());
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt);
-		}
-	}
-
-	
-	public void replyUpBoard(int ref, int pos) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = null;
-		try {
-			con = pool.getConnection();
-			sql = "update tblBoard set pos = pos + 1 where ref = ? and pos > ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, ref);
-			pstmt.setInt(2, pos);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt);
-		}
-	}
-
-	
-		public void downLoad(HttpServletRequest req, HttpServletResponse res,
-				JspWriter out, PageContext pageContext) {
-			try {
-				String filename = req.getParameter("filename");
-				
-				
-				res.setHeader("Accept-Ranges", "bytes");
-				String strClient = req.getHeader("User-Agent");
-				if (strClient.indexOf("MSIE6.0") != -1) {
-					res.setContentType("application/smnet;charset=UTF-8");
-					res.setHeader("Content-Disposition", "filename=" + filename + ";");
-				} else {
-					res.setContentType("application/smnet;charset=euc-kr");
-					res.setHeader("Content-Disposition", "attachment;filename="+ filename + ";");
-				}
-				out.clear();
-				out = pageContext.pushBody();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-	
-	public void post1000(){
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = null;
-		try {
-			con = pool.getConnection();
-			sql = "insert tblBoard(name,content,title,ref,pos,depth,regdate,pass,count,ip,filename,filesize)";
-			sql+="values('aaa', 'bbb', 'ccc', 0, 0, 0, now(), '1111',0, '127.0.0.1', null, 0);";
-			pstmt = con.prepareStatement(sql);
-			for (int i = 0; i < 1000; i++) {
-				pstmt.executeUpdate();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt);
-		}
-	}
-	
-	//main
-	public static void main(String[] args) {
-		new BoardMgr().post1000();
-		System.out.println("SUCCESS");
-	}
 }

@@ -1,6 +1,6 @@
 function writeCheck()
 {
-	var form =document.updateform;
+	var form =document.postform;
 	if(!form.title.value)
 	{
 		alert("제목을 적어주세요");
@@ -15,7 +15,7 @@ function writeCheck()
 	}
 	else
 	{
-		document.updateform.submit();
+		document.postform.submit();
 	}
 	
 	

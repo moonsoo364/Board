@@ -17,7 +17,6 @@ import Homepage_module.MemberBean;
 public class MemberMng {
 
 	private DBConnectionMgr pool;
-	String url="jdbc:mysql://127.0.0.1:3306/homepagedb?user=root&password=Tink13542";
 	public MemberMng() {
 		try {
 			pool = DBConnectionMgr.getInstance();
