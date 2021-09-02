@@ -18,7 +18,7 @@
 	if(result){
 		/* session.setAttribute("idKey", id); //(name,value) */
 		session.setAttribute("key", id);
-		session.setMaxInactiveInterval(60*120);
+		session.setMaxInactiveInterval(60*5);
 		msg= " 로그인에 성공 하였습니다.";
 		value=(String)session.getAttribute("key");
 		
