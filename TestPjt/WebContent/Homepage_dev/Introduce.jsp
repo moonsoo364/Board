@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 설명 페이지 -->
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">

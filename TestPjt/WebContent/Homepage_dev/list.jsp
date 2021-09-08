@@ -4,6 +4,7 @@
 <%@page import="Board_module.BoardMgr"%>
 <%@page import="Board_module.BoardBean" %>
 <%@page import="java.util.Vector" %>
+<!-- Board 페이지 -->
 <jsp:useBean id="Bmgr" class="Board_module.BoardMgr"/>
 <%
 request.setCharacterEncoding("UTF-8");

@@ -118,7 +118,7 @@ public class MemberMng {
 	}
 
 
-	// 회원정보가져오기
+	// 회원정보 가져오기
 	public MemberBean getMember(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;

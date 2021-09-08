@@ -24,7 +24,7 @@ public class BoardPostServlet extends HttpServlet{
 		BoardMgr Bmgr = new BoardMgr();
 		Bmgr.insertBoard(req);//매개변수로 insertboard 호출
 		
-		
+		//form에서 값이 제대로 넘어 왔는 지 확인
 		if((board_title==null)||(board_content==null))
 		{
 			System.out.print("게시판의 제목과 내용이 넘어오지 않았습니다.\n");

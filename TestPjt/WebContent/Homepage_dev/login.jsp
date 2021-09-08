@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- 로그인 페이지 -->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,8 +72,8 @@ if(session.getAttribute("key")!=null){
     		<h1>로그인</h1>
     		<center>
     			<table cellspacing="2" bgcolor="#99ebff">
-    				<FORM name=login_form action="loginProc.jsp">
-    						<tr>
+    				<form name=login_form action="loginProc.jsp">
+    			    		<tr>
     							<td >아이디</td>
     							<td>
     							<input name="id" type="text" size="15">

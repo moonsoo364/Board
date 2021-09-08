@@ -1,6 +1,7 @@
 <%@page import="Homepage_module.MemberBean"%>
 <%@ page  contentType="text/html; charset=UTF-8"%>
 <jsp:useBean id="mMgr" class="Homepage_module.MemberMng"></jsp:useBean>
+<!-- ID 중복확인 -->
 <%
 	request.setCharacterEncoding("UTF-8");
 	String id=request.getParameter("id");

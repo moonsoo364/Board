@@ -1,6 +1,6 @@
 package Board_module;
 
-public class BoardBean {
+public class BoardBean {//public 선언을 지정하게 되면 외부에서 이 변수,메서드,클래스를 자유롭게 사용가능
 	private String id;
 	private int num;
 	private String sort;
@@ -10,6 +10,9 @@ public class BoardBean {
 	private int pos;                   
 	private String regdate;              
 	private String  ip;   
+	// private public과 반대로 외부로부터 모든 접근을 차단합니다.
+	// BoardBean Class에서 변수들은 Private 선언됬지만 
+	// 변수들의 각각 get/set매서드들은 Public 선언되서 다른 Class에서 접근이 가능하다.
 	
 	public String getId() {
 		return id;

@@ -8,16 +8,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" ></script>
+    <!-- 자바스크립트 -->
     <script src="javascript/main.js" defer></script>
+    <!-- 폰트 -->
+     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" ></script>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400" rel="stylesheet">
+    <!-- style.css -->
     <link rel="stylesheet" href="css/style_index.css">
     
 </head>
 <body>
 <%!String Idkey=null; %>
 <%
+//로그인 되었는 지 콘솔창에서 확인하기 위한 코드
 if(session.getAttribute("key")!=null){
 	Idkey=(String) session.getAttribute("key");
 	System.out.printf("Id=%s 세션이 Index.jsp에 로드되었습니다\n",Idkey);
@@ -27,7 +31,7 @@ if(session.getAttribute("key")!=null){
 }
 
 %>
-<!-- navbar는 모든 페이지에 적용 됩니다.-->
+			<!-- navbar는 모든 페이지에 적용 됩니다.-->
     <nav class="navbar">
             <div class="navbar_title">
                 <i class="fas fa-chalkboard-teacher"></i>
@@ -38,6 +42,7 @@ if(session.getAttribute("key")!=null){
                 <li><a href="Introduce.jsp">Introduce</a></li>
                 <li><a href="list.jsp">Board</a></li>
             </ul>
+            <!-- 로그인되면 해당 사용자 정보를 표시하는 영역 -->
   	<%if(Idkey == null) { %>
   			
   			<ul class="navbar_reg">

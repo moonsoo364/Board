@@ -26,9 +26,12 @@ package Board_module;
  */
 
 
-import java.sql.*;
+import java.sql.*; //데이터 소스(Mysql)에 저장된 데이터 접근 및 처리를 위한 API 제공
 import java.util.Properties;
+//Properties(속성): 스트림에 저장하거나 스트림에서 로드할 수 있습니다. 속성 목록의 각 키와 해당 값은 문자열입니다.
+
 import java.util.Vector;
+//개체의 유동적인 배열을 구현가능함, Vector가 생성된 후 항목 추가 및 제거를 수용하기위해 필요에 따라 커지거나 줄어들 수 있습니다.
 
 
 /**
@@ -38,10 +41,10 @@ import java.util.Vector;
  */
 public class DBConnectionMgr {
     private Vector connections = new Vector(10);
-    private String _driver = "com.mysql.cj.jdbc.Driver",
-    _url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",
-    _user = "root",
-    _password = "1234";
+    private String _driver = "com.mysql.cj.jdbc.Driver",//Mysql과 JSP를 연동시켜주는 JDBC드라이버 입니다. 
+    _url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",//데이터베이스 위치 지정
+    _user = "root",//사용자몇
+    _password = "1234";//mysql 비밀번호
     
     private boolean _traceOn = false;
     private boolean initialized = false;
@@ -53,7 +56,8 @@ public class DBConnectionMgr {
 
     /** Use this method to set the maximum number of open connections before
      unused connections are closed.
-     */
+     */ 
+    //:이 매서드는 이전에 열려 있는 최대 connections의 수를 설정합니다. 사용되지 않은 Connections은 닫힙니다.
 
     public static DBConnectionMgr getInstance() {
         if (instance == null) {
@@ -66,7 +70,7 @@ public class DBConnectionMgr {
 
         return instance;
     }
-
+    
     public void setOpenConnectionCount(int count) {
         _openConnections = count;
     }
@@ -78,12 +82,14 @@ public class DBConnectionMgr {
 
 
     /** Returns a Vector of java.sql.Connection objects */
+    // Returns a Vector of java.sql.Connection objects 의 벡터 크기를 반환합니다.
     public Vector getConnectionList() {
         return connections;
     }
 
 
     /** Opens specified "count" of connections and adds them to the existing pool */
+    //지정된 '수'의 Connection에 열고 Pool에 추가합니다.
     public synchronized void setInitOpenConnections(int count)
             throws SQLException {
         Connection c = null;
@@ -100,12 +106,14 @@ public class DBConnectionMgr {
 
 
     /** Returns a count of open connections */
+    //	열린 Connections 수를 반환합니다.
     public int getConnectionCount() {
         return connections.size();
     }
 
 
     /** Returns an unused existing or new connection.  */
+    // 사용하지 않은 Connection 또는 새 연결을 반환합니다. 
     public synchronized Connection getConnection()
             throws Exception {
         if (!initialized) {
@@ -163,6 +171,7 @@ public class DBConnectionMgr {
 
 
     /** Marks a flag in the ConnectionObject to indicate this connection is no longer in use */
+    //	이 연결이 더 이상 사용되지 않음을 나타내기 위해 ConnectionObject에 플래그를 표시합니다.
     public synchronized void freeConnection(Connection c) {
         if (c == null)
             return;
@@ -224,6 +233,7 @@ public class DBConnectionMgr {
 
 
     /** Marks a flag in the ConnectionObject to indicate this connection is no longer in use */
+    //이 연결이 더 이상 사용되지 않음을 나타내기 위해 ConnectionObject에 플래그를 표시합니다.
     public synchronized void removeConnection(Connection c) {
         if (c == null)
             return;
@@ -270,6 +280,7 @@ public class DBConnectionMgr {
 
 
     /** Closes all connections and clears out the connection pool */
+    //모든 Connections을 닫고 pool을 초기화 합니다.
     public void releaseFreeConnections() {
         trace("ConnectionPoolManager.releaseFreeConnections()");
 
@@ -285,6 +296,7 @@ public class DBConnectionMgr {
 
 
     /** Closes all connections and clears out the connection pool */
+    
     public void finalize() {
         trace("ConnectionPoolManager.finalize()");
 
