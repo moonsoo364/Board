@@ -66,38 +66,29 @@ if(session.getAttribute("key")!=null){
             </a>
     </nav>
     <!--여기서 부터 내용 입니다-->
-   <section class="login_section">
-   	    <div class="wrap_contents">
-    	<div class=content_header>
-    		<h1>로그인</h1>
-    		<center>
-    			<table cellspacing="2" bgcolor="#99ebff">
-    				<form name=login_form action="loginProc.jsp">
-    			    		<tr>
-    							<td >아이디</td>
-    							<td>
-    							<input name="id" type="text" size="15">
-    							</td>
-    						</tr>
-    						<tr>
-    							<td >비밀번호</td>
-    							<td>
-    							<input name="pwd" type="password"size="15">
-    							</td>
-    						</tr>
-    						<td colspan="3" align="center">
-    								<input type="button" value="로그인" onclick="logChk()">
-								   <input type="button" value="회원가입" onclick="javascript:location.href='member.jsp'">
-							</td>
-    				</form>
-    			</table>
-    		</center>
-    	</div>
-    </div>
-    						
+ <div class="login_area">
+ 	<h1>로그인</h1>
+ 	<form name=login_form action="loginProc.jsp">
+    	<table>
+    		<tr>
+    			<td >아이디</td>
+    			<td><input id="login_box" name="id" type="text" size="15"></td>
+    		</tr>
+    		<tr>
+   				<td >비밀번호</td>
+   				<td><input id="login_box" name="pwd" type="password"size="15"></td>
+   			</tr>
+    		<tr>
+    			
+    			<td colspan=2 align="center">
+    				<input id="login_button" type="button" value="로그인" onclick="logChk()">
+    				<input id="register_button"  type="button" value="회원가입" onclick="javascript:location.href='member.jsp'">
+				</td>
+						
+			</tr>	
+   		</table>					
    	</form>
-   		
-   </section>
+</div>
    <!-- footer는 모든 페이지에 적용 됩니다.-->
 	<footer class="footer_style">
 		<div class="footer_alarm">

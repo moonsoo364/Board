@@ -5,32 +5,33 @@
 	margin-top: 60px;
 	max-width: 500px;
 	min-height: 300px;
-	text-align: center;
 	
 	
+	
+}
+.content_header{
+	border:5px solid black;
 }
 .h1_title{
 	font-size: 20px;
+	text-align: center;
 }
 .p_info{
 	font-size: 15px;
+	text-align: center;
 }
-/*------------컨텐트 헤더-----------*/
+
+
 td,tr,input,testarea,select,form{
-	font-size:15px;
+	font-size:18px;
 	border-radius: 5px;
 }
 table,form
 {
-	border:3px solid rgba(0, 134, 179,0.25);
+	
 	border-spacing:15px;
 }
-.tbl{
-	background-color: #99ebff;
-	border-spacing:10px 10px;
-	margin-bottom:60px;
-}
 
-/*--------------컨텐트---------------*/
+
 
 

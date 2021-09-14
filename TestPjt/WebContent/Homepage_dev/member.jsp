@@ -61,9 +61,10 @@
     	<div class=content_header>
     		<h1 class=h1_title>정보 입력</h1>
     		<p class="p_info">회원가입</p>
-    		<center>
+    		
+    		<form name=register_form action="memberProc.jsp">
     			<table class="tbl">
-    				<form name=register_form action="memberProc.jsp">
+    				
     						<tr>
     							<td >아이디</td>
     							<td>
@@ -124,24 +125,18 @@
     							<td><input name="detailaddress"  size="20" id="detailAddress" ></td>
     						</tr>
     						
-							<tr>
-							<td>가입유형</td>
-								<td><select name="membertype">
-										<option value="" selected>선택하세요.
-										<option value="관리자">관리자
-										<option value="유저">유저
-								</select></td>
-							</tr>
+							
 							<tr>
 							<td colspan="3" align="center">
 								   <input type="button" value="회원가입" onclick="CheckAll()">
-								   <!-- 로그인 확인을 쉽게 하기위해 CheckAll 유효성검사 뺐음 기능 구현 됬으면 다시 넣아야함! -->
 							</td>
 							</tr>
-					</form>	
+						
     			</table>
+    		</form>	
     		
-    		</center>
+    		
+    		
 	
     	</div>
 	 

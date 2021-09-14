@@ -30,7 +30,7 @@ function CheckAll(){
     return true;
 	
 }
-
+//join class로 묶고 ex) join.isbirthday
 //생년월일 확인 함수
 function isbirthday(value){
  	//생년월일 변수 선언 

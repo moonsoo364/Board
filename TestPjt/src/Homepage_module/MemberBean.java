@@ -11,7 +11,7 @@ public class MemberBean {
 	private String address;
 	private String detailaddress;
 	private String email;
-	private String membertype;
+	
 	
 	public String getId() {
 		return id;
@@ -67,12 +67,7 @@ public class MemberBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getMembertype() {
-		return membertype;
-	}
-	public void setMembertype(String membertype) {
-		this.membertype = membertype;
-	}
+	
 	
 	
 

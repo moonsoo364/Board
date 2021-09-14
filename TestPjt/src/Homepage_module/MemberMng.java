@@ -68,10 +68,9 @@ public class MemberMng {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("드라이버 로드 성공!");
 			con = pool.getConnection();
-           // System.out.println("데이터베이스 접속 성공!");
-           //con = pool.getConnection();
+           
 			sql = "insert tablemember(id,pwd,name,gender,birthday,email"
-					+",zipcode,address,detailaddress,membertype)values(?,?,?,?,?,?,?,?,?,?)";
+					+",zipcode,address,detailaddress)values(?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getId());
 			pstmt.setString(2, bean.getPwd());
@@ -82,7 +81,7 @@ public class MemberMng {
 			pstmt.setString(7, bean.getZipcode());
 			pstmt.setString(8, bean.getAddress());
 			pstmt.setString(9, bean.getDetailaddress());
-			pstmt.setString(10, bean.getMembertype());
+			
 
 			if (pstmt.executeUpdate() == 1)
 				flag = true;
@@ -151,34 +150,5 @@ public class MemberMng {
 		return bean;
 	}
 
-	// 회원정보수정
-	public boolean updateMember(MemberBean bean) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		boolean flag = false;
-		try {
-			con = pool.getConnection();
-			String sql = "update boardmember set pwd=?, zipcode=?, address=?, detailaddress=?,"
-					+ "name=?, gender=?, birthday=?, email=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bean.getPwd());
-			pstmt.setString(2, bean.getZipcode());
-			pstmt.setString(3, bean.getAddress());
-			pstmt.setString(4, bean.getDetailaddress());
-			pstmt.setString(5, bean.getName());
-			pstmt.setString(6, bean.getGender());
-			pstmt.setString(7, bean.getBirthday());
-			pstmt.setString(8, bean.getEmail());
-			
-		
-			int count = pstmt.executeUpdate();
-			if (count > 0)
-				flag = true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt);
-		}
-		return flag;
-	}
+	
 }
