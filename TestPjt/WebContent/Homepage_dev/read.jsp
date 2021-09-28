@@ -15,7 +15,7 @@
 	String id =bean.getId();
 	String content = bean.getContent();
 	String title = bean.getTitle();
-	String regdate =bean.getRegdate();
+	String regdate =bean.getLogdate();
 	String ip =bean.getIp();
 	int count =bean.getCount();
 	session.setAttribute("bean",bean);//게시물을 세션에 저장

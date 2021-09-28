@@ -21,15 +21,14 @@ function CheckAll(){
 	if(!checkDetailaddress(register_form.detailaddress.value)){
 		return false;
 	}
-	if(!checkUsertype(register_form.membertype.value)){
-		return false;
-	}
+
 	
 	//끝으로 데이터베이스에 입력 값 전송
  	document.register_form.submit();
     return true;
 	
 }
+
 //join class로 묶고 ex) join.isbirthday
 //생년월일 확인 함수
 function isbirthday(value){
@@ -200,14 +199,7 @@ function isbirthday(value){
 		}
 		return true;
 	}
-	function checkUsertype(membertype) {
-		//가입 유형을 선택했는 지 확인
-		if(!checkExistData(membertype,"가입유형을")){
-			register_form.membertype.focus();
-			return false;
-		}
-		return true;
-	}
+	
 	
 	
  

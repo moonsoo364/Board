@@ -64,21 +64,22 @@ if(session.getAttribute("key")!=null){
     </nav>
     <!-- 글쓰기 내용 입니다. -->
     <div class="container" >
-		<h2 class="post">글쓰기</h2>
-		<form name="postform" method="post" action="BoardPost">
 		
-		<table class= "content_table" cellpadding="3">
+		<form name="postform" method="post" action="BoardPost">
+		<h1>글쓰기</h1>
+		<table class= "content_table">
+				
 				<tr>
-					<td>제목</td>
-					<td><input name="title" size="50" maxlength="30"></td>
+					<td class="text_left" >제목</td>
+					<td style="text-align:left;"><input id="title_box" name="title" size="21" maxlength="50"></td>
 				</tr>
 				
 				<tr>
-				<td>
+				<td class="text_left">
 					분류
 				</td>
-				<td class="textleft">
-    				<select name="sort" style="height:30px;">
+				<td style="text-align:left;">
+    				<select name="sort" id="box_font">
 							<option value="공지">공지사항</option>
 							<option value="잡담">잡담</option>
 							<option value="리뷰">리뷰</option>
@@ -87,22 +88,20 @@ if(session.getAttribute("key")!=null){
     			</td>
     			</tr>
 				<tr>
-					<td>내용</td>
-					<td><textarea name="content" rows="10" cols="52"></textarea></td>
+					<td class="text_left" >내용</td>
+					<td style="text-align:left;"><textarea name="content" rows="10" cols="40" ></textarea></td>
 				</tr>
 				
-				<%if(Idkey!=null) {%>
+				
 				<tr>
-					<td colspan="2" >
-						<input type="button" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
-						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
+					<td colspan="2"  >
+						<input id="box_font" type="button" value="등록" onclick="javascript:writeCheck();">&nbsp;&nbsp;
+						<input id="box_font" type="button" value="목록" onclick="javascript:location.href='list.jsp'">
 					</td>
 				</tr>
-			 <%}else{%>
-			 <td colspan="2" >
-						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
-			</td>
-			<%}%>	
+			
+			 
+				
 			</table>
 			<input type="hidden" name="ip" value="<%=request.getRemoteAddr() %>">
 			<input type="hidden" name="id" value="<%=Idkey %>">

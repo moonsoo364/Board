@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글쓰기</title>
+    <title>수정하기</title>
    <link rel="stylesheet" href="css/style_index.css">
     <link rel="stylesheet" href="css/style_post.css">
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" ></script>
     <script src="javascript/main.js" defer></script>
-    <script src="javascript/post.js"></script>
+    <script src="javascript/update.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -77,18 +77,19 @@ String content =bean.getContent();
 		<h2 class="post">수정하기</h2>
 		<form name="updateform" method="post" action="BoardUpdate">
 		
-		<table class= "content_table" cellpadding="3">
+		<table class= "content_table">
+				
 				<tr>
-					<td>제목</td>
-					<td><input name="title" value="<%=title %>" size="50" maxlength="30"></td>
+					<td class="text_left" >제목</td>
+					<td style="text-align:left;"><input id="title_box" name="title" size="21" maxlength="50"></td>
 				</tr>
 				
 				<tr>
-				<td>
+				<td class="text_left">
 					분류
 				</td>
-				<td class="textleft">
-    				<select name="sort" style="height:30px;">
+				<td style="text-align:left;">
+    				<select name="sort" id="box_font">
 							<option value="공지">공지사항</option>
 							<option value="잡담">잡담</option>
 							<option value="리뷰">리뷰</option>
@@ -97,22 +98,19 @@ String content =bean.getContent();
     			</td>
     			</tr>
 				<tr>
-					<td>내용</td>
-					<td><textarea name="content"  rows="10" cols="52"><%=content %></textarea></td>
+					<td class="text_left" >내용</td>
+					<td style="text-align:left;"><textarea name="content" rows="10" cols="40" ></textarea></td>
 				</tr>
 				
-				<%if(Idkey!=null) {%>
+				
 				<tr>
-					<td colspan="2" >
-						<input type="button" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
-						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
+					<td colspan="2"  >
+						<input id="box_font" type="button" value="등록"onclick="javascript:writeCheck();">&nbsp;&nbsp;
+						<input id="box_font" type="button" value="목록" onclick="javascript:location.href='list.jsp'">
 					</td>
 				</tr>
-			 <%}else{%>
-			 <td colspan="2" >
-						<input  type="button" value="목록" onclick="javascript:location.href='list.jsp'">
-			</td>
-			<%}%>	
+		
+		
 			</table>
 			<input type="hidden" name="ip" value="<%=request.getRemoteAddr() %>">
 			<input type="hidden" name="id" value="<%=Idkey %>">

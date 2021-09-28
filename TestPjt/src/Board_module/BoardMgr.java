@@ -56,7 +56,7 @@ public class BoardMgr {
 				bean.setPos(rs.getInt("pos"));
 				bean.setSort(rs.getString("sort"));
 				bean.setId(rs.getString("id"));
-				bean.setRegdate(rs.getString("regdate"));
+				bean.setLogdate(rs.getString("Logdate"));
 				bean.setCount(rs.getInt("count"));
 				vlist.add(bean);
 			}
@@ -68,7 +68,7 @@ public class BoardMgr {
 		return vlist;
 	}
 	
-	
+	//게시글 갯수 확인하기
 	public int getTotalCount(String keyField, String keyWord) {
 		Connection conn = null; //자바에서 DB로 sql문 전송
 		PreparedStatement pstmt = null;//DB에서 자바로 결과 전송
@@ -99,9 +99,9 @@ public class BoardMgr {
 		}
 		return totalCount;
 	}
-	
+	//게시판 글쓰기 기능 구현
 	public void insertBoard(HttpServletRequest req) {
-		//게시판 글쓰기 기능 구현 
+		 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -157,7 +157,7 @@ public class BoardMgr {
 				bean.setTitle(rs.getString("title"));
 				bean.setContent(rs.getString("content"));
 				bean.setPos(rs.getInt("pos"));
-				bean.setRegdate(rs.getString("regdate"));
+				bean.setLogdate(rs.getString("logdate"));
 				bean.setCount(rs.getInt("count"));
 				bean.setIp(rs.getString("ip"));
 			}
@@ -214,7 +214,7 @@ public class BoardMgr {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tableBoard set  title=?, content = ?,regdate=now() where num = ?";
+			sql = "update tableBoard set  title=?, content = ?,logdate=now() where num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getTitle());
 			pstmt.setString(2, bean.getContent());

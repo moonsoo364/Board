@@ -8,7 +8,7 @@ public class BoardBean {//public 선언을 지정하게 되면 외부에서 이 
 	private String title;
 	private String content;     
 	private int pos;                   
-	private String regdate;              
+	private String logdate;              
 	private String  ip;   
 	// private public과 반대로 외부로부터 모든 접근을 차단합니다.
 	// BoardBean Class에서 변수들은 Private 선언됬지만 
@@ -56,17 +56,22 @@ public class BoardBean {//public 선언을 지정하게 되면 외부에서 이 
 	public void setPos(int pos) {
 		this.pos = pos;
 	}
-	public String getRegdate() {
-		return regdate;
+	
+	public String getLogdate() {
+		return logdate;
 	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setLogdate(String logdate) {
+		this.logdate = logdate;
 	}
 	public String getIp() {
 		return ip;
 	}
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+	public BoardBean() {
+		super();
+		
 	}
 	
 	

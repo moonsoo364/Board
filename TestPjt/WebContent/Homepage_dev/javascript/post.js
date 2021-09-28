@@ -1,6 +1,7 @@
 function writeCheck()
 {
 	var form =document.postform;
+	
 	if(!form.title.value)
 	{
 		alert("제목을 적어주세요");

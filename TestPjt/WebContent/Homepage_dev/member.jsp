@@ -128,10 +128,9 @@
 							
 							<tr>
 							<td colspan="3" align="center">
-								   <input type="button" value="회원가입" onclick="CheckAll()">
+								   <input type="button" value="회원가입" onclick="CheckAll()" >
 							</td>
-							</tr>
-						
+							</tr>						
     			</table>
     		</form>	
     		

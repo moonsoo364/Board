@@ -1,25 +1,51 @@
 @charset "UTF-8";
+#box_font{
+	
+	font-size: 1em;
+	font-family: "맑은 고딕", sans-serif ;
+}
+textarea{
+	font-size:20px;
+	font-family: "맑은 고딕", sans-serif ;
+	width:450px;
+}
+
 .container{
 	
-	max-width: 500px;
+	max-width: 720px;
     min-height: 300px;
-	margin:0px auto;
+	margin:135px auto;
 	text-align: center;
-	background-color: #99ebff;
+	font-size: 20px;
+	border:5px solid black;
+	
+}
+.text_left{
+	width:50px;
+}
+#title_box{
+	font-size: 1.4em;
+    padding: 0.15em 0;
+    background-color: white;
+ }
+
 	
 	
-	
-	
+table{
+	margin :auto;
+	border-spacing:15px;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	max-width: 720px;
 }
 .post{
 	
-	background-color: #00ea41;
+	
 	margin-bottom: 10px;
 	
 }
-.textleft{
-	text-align: left;
-}
+
 /*푸터가 컨테이너 하단 덮어버리는 것 방지*/
 
 	
