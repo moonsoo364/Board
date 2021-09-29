@@ -1,16 +1,16 @@
 package Board_module;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Board_module.BoardBean;
 
-
-
+@SuppressWarnings("serial")
 @WebServlet("/Homepage_dev/BoardPost")
 public class BoardPostServlet extends HttpServlet{
 	

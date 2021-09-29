@@ -50,6 +50,11 @@ public class BoardBean {//public 선언을 지정하게 되면 외부에서 이 
 	public void setContent(String content) {
 		this.content = content;
 	}
+	@Override
+	public String toString() {
+		return "BoardBean [id=" + id + ", num=" + num + ", sort=" + sort + ", count=" + count + ", title=" + title
+				+ ", content=" + content + ", pos=" + pos + ", logdate=" + logdate + ", ip=" + ip + "]";
+	}
 	public int getPos() {
 		return pos;
 	}
@@ -75,6 +80,19 @@ public class BoardBean {//public 선언을 지정하게 되면 외부에서 이 
 	}
 	
 	
+	public BoardBean(String id,int num,String sort,int count,String title,String content,int pos,String logdate,
+			String ip) {
+		super();
+		this.id=id;
+		this.num=num;
+		this.sort=sort;
+		this.count=count;
+		this.title=title;
+		this.content=content;
+		this.pos=pos;
+		this.logdate=logdate;
+		this.ip=ip;
+	}
 	
 	
 }

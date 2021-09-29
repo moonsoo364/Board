@@ -2,6 +2,7 @@ package Board_module;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -120,10 +121,11 @@ public class BoardMgr {
 			sql="insert into tableboard(id,sort,title,content,ip,pos,count)";
 			sql+="values(?, ?, ?, ?, ?, ?, ?)";
 			pstmt =conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, sort);
-			pstmt.setString(3, title);
-			pstmt.setString(4, content);
+			
+			pstmt.setString(1, id.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(2, sort.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(3, title.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
+			pstmt.setString(4, content.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\r\n", "<br>"));
 			pstmt.setString(5, ip);
 			pstmt.setInt(6, pos);
 			pstmt.setInt(7, count);
