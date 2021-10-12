@@ -65,8 +65,7 @@ public class MemberMng {
 		String sql = null;
 		boolean flag = false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("드라이버 로드 성공!");
+			
 			con = pool.getConnection();
            
 			sql = "insert tablemember(id,pwd,name,gender,birthday,email"

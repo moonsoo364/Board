@@ -42,9 +42,11 @@ import java.util.Vector;
 public class DBConnectionMgr {
     private Vector connections = new Vector(10);
     private String _driver = "com.mysql.cj.jdbc.Driver",//Mysql과 JSP를 연동시켜주는 JDBC드라이버 입니다. 
-    _url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",//데이터베이스 위치 지정
-    _user = "root",//사용자몇
-    _password = "1234";//mysql 비밀번호
+    //_url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",//로컬
+    _url = "jdbc:mysql://database-1.co9pinwozv4n.ap-northeast-2.rds.amazonaws.com:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",
+    _user = "root",
+    //_password = "1234";
+    _password = "abcd1234";
     
     private boolean _traceOn = false;
     private boolean initialized = false;

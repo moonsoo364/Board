@@ -88,6 +88,7 @@ String Idkey=null;
 if(session.getAttribute("key")!=null){
 	Idkey=(String)session.getAttribute("key");
 	System.out.printf("Id=%s 세션이 list.jsp에 로드되었습니다\n",Idkey);
+	System.out.printf("Id=%s 세션이 list.jsp에 로드되었습니다\n",Idkey);
 	
 }else{
 	Idkey=null;
@@ -176,7 +177,7 @@ if(session.getAttribute("key")!=null){
 	    <%}//if %>
 	    
 	 </table>
-    	
+    	<%System.out.printf("bean=%s \n",vlist); %>
 		<div class="bottom_content">
 		<!-- 하단 페이징 처리 -->
 		<%if(session.getAttribute("key")!=null){%>

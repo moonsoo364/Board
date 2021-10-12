@@ -1,8 +1,6 @@
 package Board_module;
 import java.sql.Connection;
 
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -24,8 +22,7 @@ public class BoardMgr {
 	}
 
 	//게시판 목록 불러오기
-	public Vector<BoardBean> getBoardList(String keyField, String keyWord,
-			int start, int end) {
+	public Vector<BoardBean> getBoardList(String keyField, String keyWord,int start, int end) {
 		Connection con =null; //자바에서 DB로 sql 전송
 		PreparedStatement pstmt =null;//DB에서 자바로 sql 결과 전송
 		ResultSet rs =null;//sql문 실행 결과
@@ -102,6 +99,7 @@ public class BoardMgr {
 	}
 	//게시판 글쓰기 기능 구현
 	public void insertBoard(HttpServletRequest req) {
+
 		 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -140,7 +138,7 @@ public class BoardMgr {
 		}
 	}
 	
-	
+	//게시판 데이터 읽기
 	public BoardBean getBoard(int num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -149,7 +147,7 @@ public class BoardMgr {
 		BoardBean bean = new BoardBean();
 		try {
 			con = pool.getConnection();
-			sql = "select * from tableBoard where num=?";
+			sql = "select * from tableboard where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
@@ -171,14 +169,14 @@ public class BoardMgr {
 		return bean;
 	}
 
-	
+	//조회수 증가
 	public void upCount(int num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tableBoard set count=count+1 where num=?";
+			sql = "update tableboard set count=count+1 where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();
@@ -198,7 +196,7 @@ public class BoardMgr {
 		try {
 			con = pool.getConnection();
 			
-			sql = "delete from tableBoard where num=?";
+			sql = "delete from tableboard where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();
@@ -216,7 +214,7 @@ public class BoardMgr {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tableBoard set  title=?, content = ?,logdate=now() where num = ?";
+			sql = "update tableboard set  title=?, content = ?,logdate=now() where num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getTitle());
 			pstmt.setString(2, bean.getContent());

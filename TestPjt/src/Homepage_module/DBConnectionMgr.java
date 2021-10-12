@@ -39,9 +39,10 @@ import java.util.Vector;
 public class DBConnectionMgr {
     private Vector connections = new Vector(10);
     private String _driver = "com.mysql.cj.jdbc.Driver",
-    _url = "jdbc:mysql://127.0.0.1:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",
+    _url = "jdbc:mysql://database-1.co9pinwozv4n.ap-northeast-2.rds.amazonaws.com:3306/homepagedb?serverTimezone=UTC&characterEncording=UTF-8",
     _user = "root",
-    _password = "1234";
+    //_password = "1234";
+    _password = "abcd1234";
     
     private boolean _traceOn = false;
     private boolean initialized = false;

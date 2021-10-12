@@ -8,16 +8,20 @@
 	int num =Integer.parseInt(request.getParameter("num"));
 	String nowPage =request.getParameter("nowPage");
 	System.out.printf("nowPage=%s\n",nowPage);
+	System.out.printf("num=%d\n",num);
 	String keyField =request.getParameter("keyField");
 	String keyWord =request.getParameter("keyWored");
 	bMgr.upCount(num);//조회수 증가
 	BoardBean bean =bMgr.getBoard(num);//게시물 가져오기
+	System.out.println("bean"+bean+'\n');
 	String id =bean.getId();
 	String content = bean.getContent();
 	String title = bean.getTitle();
 	String regdate =bean.getLogdate();
 	String ip =bean.getIp();
 	int count =bean.getCount();
+	//System.out.println("id="+id+'\n');
+	System.out.println("bean.getId()="+bean.getId()+'\n');
 	session.setAttribute("bean",bean);//게시물을 세션에 저장
 %>
 <!DOCTYPE html>
@@ -103,8 +107,6 @@ if(session.getAttribute("key")!=null){
 	     <div class="read_content"><%=content %><hr>
 	     <a href="javascript:list()" style="color:black">[리스트 |</a>
 	     <%
-	     System.out.printf("id.equals(Idkey):%s\n",id.equals(Idkey));//Call by Value
-	     System.out.printf("id==Idkey:%s\n",id==Idkey);//Call by Reference
 	     if(id.equals(Idkey)){
 	    System.out.println("게시물과 일치하는 Id입니다\n");%>
 	     	
