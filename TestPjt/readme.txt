@@ -20,12 +20,12 @@ IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
 				3-1.isbirthday(): 생년월일 6자리를 2자리식 자른다 
 					month가 4,6,9,11이고 day=31일 경우 alert("4,6,9,11월 달은 30일 까지 있습니다"); 예외처리
 					month가 2인데 29일보다 크거나 leap(윤년)이 아니고 29일 경우  alert("2월달은 28,29일 까지 있습니다");로 예외처리
-				3-2.checkId(id),checkPassword(id, pwd, repwd) : 아이디와 비밀번호를 영대소문자와 숫자로 구성되게 정규식 지정해줌, 비밀번호와 비밀번호 확인이 일치하는 지도 표현 
+				3-2.checkId(id),checkPassword(id, pwd, repwd) : 아이디와 비밀번호를 영대소문자와 숫자로 구성되게 정규식 지정해줌, 비밀번호와 비밀번호 확인                                                                                 이 일치하는 지도 표현 
 					ex)var pwdRegExp = /^[a-zA-z0-9]{8,16}$/; //비밀번호를 대소문자와 숫자 8~16자리로 비밀번호를 설정함 
 				
 				3-3.checkEmail(email) : 이메일 형식을 정규 표현식으로 설정한 함수 
 				
-				3-4.checkAddress(address),checkDetailaddress(address) : 주소와 상세주소란이 공백인지 확인, 주소는 다음 api를 이용해서 구현해서 따로 정규표현식으로 제한하지 않았음
+				3-4.checkAddress(address),checkDetailaddress(address) : 주소와 상세주소란이 공백인지 확인, 주소는 다음 api를 이용해서 구현해서 따로 정규                                                                                         표현식으로 제한하지 않았음
 		
 		5.list.jsp : 게시판 페이지
 				1.게시글 총 개수,현재 게시글 페이지를 표시한다 (게시글 수 : 4 게시판 페이지 : 5페이지 중 1페이지 보는 중)
@@ -46,7 +46,7 @@ IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
 				
 				2.BoardMgr : 게시판 기능을 구현하기 위해 sql문을 함수화한 Class
 					
-					2-1 getBoardList(keyfield,keyword,start,end) : 게시글을 읽어오는 sql 함수,keyfield는 글제목,글내용,작성자가 들어가고 keyword는 검색창에 입력한 값이 들어감
+					2-1 getBoardList(keyfield,keyword,start,end) : 게시글을 읽어오는 sql 함수,keyfield는 글제목,글내용,작성자가 들어가고 keyword는 검                                                                                        색창에 입력한 값이 들어감
 					start,end는 한 페이지에 담기는 글 갯수(0,10으로 설정함)
 					
 					2-2 getTotalCount(keyfield,keyword) : DB에 담긴 게시글 갯수를 세는 SQL함수,keyword가 비어 있을 때 DB 전체 게시글을 출력해주고
@@ -55,7 +55,8 @@ IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
 					2-3 insertBoard(HttpServletRequest) : 작성한 게시글을 DB에 입력하는 함수 post.jsp에서 글을 작성하면 id,글종류,제목,내용,ip 값을
 					BoardPostServlet.java에서 post 방식으로 값을 받고 insertBoard()함수에서 request로 그 값들을 읽고 insert문으로 DB에 입력한다.
 					
-					2-4 getBoard(int num) : 게시글을 누르면 해당하는 번호에 맞는 글을 DB에서 가지고 오는 함수, 글쓴이,등록일자,제목,글내용을 read.jsp에 표시해준다.
+					2-4 getBoard(int num) : 게시글을 누르면 해당하는 번호에 맞는 글을 DB에서 가지고 오는 함수, 글쓴이,등록일자,제목,글내용을 
+					                         read.jsp에 표시해준다.
 					
 					2-5 upCount(int num) : 게시글을 읽으면 조회수를 올려주는 함수, 글번호를 기준으로 조회수를 1씩 올려준다.
 					
