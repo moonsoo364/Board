@@ -39,7 +39,7 @@ public class BoardMgr {
 				pstmt.setInt(2,end);
 			} else {//검색하면 동작
 				System.out.printf("in java keyField=%s keyWord=%s\n",keyField,keyWord);
-				sql = "select * from  tableBoard where " + keyField + " like ? ";
+				sql = "select * from  tableboard where " + keyField + " like ? ";
 				sql += "order by num desc, pos limit ? , ?";
 				pstmt =con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");//찾고 싶은 내용
@@ -81,7 +81,7 @@ public class BoardMgr {
 				pstmt = conn.prepareStatement(sql);
 				//키워드가 비워있을 때 키필드에서 count를 찾는다
 			} else {
-				sql = "select count(num) from  tableBoard where " + keyField + " like ? ";
+				sql = "select count(num) from  tableboard where " + keyField + " like ? ";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");//찾고 싶은 내용
 				//키워드가 있을 때

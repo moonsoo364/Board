@@ -33,7 +33,7 @@ public class BoardUpdateServlet extends HttpServlet{
 		bean.setTitle(req.getParameter("title"));//글 제목을 수정함
 		bean.setContent(req.getParameter("content"));//글 내용을 수정함
 		bean.setIp(req.getParameter("ip"));//작성자의 IP를 수정함
-		bean.setSort(req.getParameter("sort"));
+		bean.setSort(req.getParameter("sort"));//작성자 글 분류
 		bMgr.updateBoard(bean);
 		String url="read.jsp?num="+bean.getNum()+"&nowPage="+nowPage;
 		resp.sendRedirect(url);
