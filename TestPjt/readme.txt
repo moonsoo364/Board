@@ -40,11 +40,11 @@ IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
 
 		데이터 베이스 연동
 			
-			Board_module : 게시판에 사용될 sql문을 함수화 한 패키지
+			Board_module : 게시판에 사용될 Java 패키지
 				
-				1.BoardBean : 게시판 테이블에 있는 Column을 변수화한 Bean
+				1.BoardBean : 게시판 테이블에 있는 Column을 변수화한 Bean Class
 				
-				2.BoardMgr : 게시판 기능을 구현하기 위해 sql문을 함수화한 java파일
+				2.BoardMgr : 게시판 기능을 구현하기 위해 sql문을 함수화한 Class
 					
 					2-1 getBoardList(keyfield,keyword,start,end) : 게시글을 읽어오는 sql 함수,keyfield는 글제목,글내용,작성자가 들어가고 keyword는 검색창에 입력한 값이 들어감
 					start,end는 한 페이지에 담기는 글 갯수(0,10으로 설정함)
@@ -54,6 +54,30 @@ IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
 					
 					2-3 insertBoard(HttpServletRequest) : 작성한 게시글을 DB에 입력하는 함수 post.jsp에서 글을 작성하면 id,글종류,제목,내용,ip 값을
 					BoardPostServlet.java에서 post 방식으로 값을 받고 insertBoard()함수에서 request로 그 값들을 읽고 insert문으로 DB에 입력한다.
+					
+					2-4 getBoard(int num) : 게시글을 누르면 해당하는 번호에 맞는 글을 DB에서 가지고 오는 함수, 글쓴이,등록일자,제목,글내용을 read.jsp에 표시해준다.
+					
+					2-5 upCount(int num) : 게시글을 읽으면 조회수를 올려주는 함수, 글번호를 기준으로 조회수를 1씩 올려준다.
+					
+					2-6 deleteBoard(int num) : 게시글을 삭제하는 함수, 해당하는 글번호에 글을 지운다.
+					
+					2-7 updateBoard(Board bean) : 게시글을 수정하는 함수, 제목,글내용,글분류,작성 시간을 수정해준다.
+				
+				3.DBConnectionMgr : 사용할 mysql 정보가 담기는 Class
+			
+			Homepage_module : 로그인,회원가입에 사용될 Java 패키지
+				
+				1.MemberBean : 회원 테이블에 있는 Colomn을 변수화한 Bean Class
+				
+				2.MemberMng :  회원가입,로그인을 구현하기 위해 sql문을 함수화한 Class
+					
+					2-1 checkId(String id) : 회원 가입할 때 해당하는 id가 중복되는 지 확인하는 함수
+					
+					2-2 insertMember(MemberBean bean) : 회원가입 페이지(member.jsp)에서 기입한 내용을 DB에 입력해주는 함수
+					
+					2-3 loginMember(String id, String pwd) : 로그인 할 때 아이디,비밀번호에 일치하는 데이터가 있는 지 확인하는 함수
+					
+				3.DBConnectionMgr : 사용할 mysql 정보가 담기는 Class
 					
 					
 					

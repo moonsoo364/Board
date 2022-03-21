@@ -116,38 +116,7 @@ public class MemberMng {
 	}
 
 
-	// 회원정보 가져오기
-	public MemberBean getMember(String id) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		MemberBean bean = null;
-		try {
-			con = pool.getConnection();
-			String sql = "select * from tablemember where id = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				bean = new MemberBean();
-				bean.setId(rs.getString("id"));
-				bean.setPwd(rs.getString("pwd"));
-				bean.setZipcode(rs.getString("zipcode"));
-				bean.setAddress(rs.getString("address"));
-				bean.setDetailaddress(rs.getString("detailaddress"));
-				bean.setName(rs.getString("name"));
-				bean.setGender(rs.getString("gender"));
-				bean.setBirthday(rs.getString("birthday"));
-				bean.setEmail(rs.getString("email"));
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con);
-		}
-		return bean;
-	}
+	
 
 	
 }

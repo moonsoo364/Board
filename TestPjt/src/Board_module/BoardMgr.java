@@ -214,11 +214,12 @@ public class BoardMgr {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update tableboard set  title=?, content = ?,logdate=now() where num = ?";
+			sql = "update tableboard set  title=?, content = ?,sort= ?,logdate=now() where num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getTitle());
 			pstmt.setString(2, bean.getContent());
-			pstmt.setInt(3, bean.getNum());
+			pstmt.setString(3, bean.getSort());
+			pstmt.setInt(4, bean.getNum());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
