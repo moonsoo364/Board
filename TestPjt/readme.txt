@@ -1,4 +1,4 @@
-IT 기기 정보를 공유하는 커뮤니티 게시판 만들기
+IT 기기 정보를 공유하는 커뮤니티 게시판 만들기(2021-10-12에 완성됨)
 
 개발 환경 : Html,CSS,JAVA,JSP,TOMCAT,Mysql
 사용한 JAVA Library : Mysql-Connector-java
